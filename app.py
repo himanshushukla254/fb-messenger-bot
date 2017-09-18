@@ -1,7 +1,7 @@
 import os
 import sys
 import json
-
+import random
 import requests
 from flask import Flask, request
 
@@ -24,7 +24,7 @@ def verify():
 def webhook():
 
     # endpoint for processing incoming messaging events
-
+    GREETING_RESPONSES = ["Himanshu will reach you soon", "hey", "*nods*", "i am a bot","Bots are awesome!!","you are talking to a bot."]
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
@@ -39,7 +39,7 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    send_message(sender_id, "Himanshu will contact you soon")
+                    send_message(sender_id, random.choice(GREETING_RESPONSES))
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
