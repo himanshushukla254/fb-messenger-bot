@@ -24,7 +24,7 @@ def verify():
 def webhook():
 
     # endpoint for processing incoming messaging events
-    GREETING_RESPONSES = ["Himanshu will reach you soon", "hey", "yo","It's good to be bad","this reply is from a bot.", "i am a bot","Bots are awesome!!","you are talking to a bot."]
+    GREETING_RESPONSES = ["Himanshu will reach you soon", "hey", "yo","random_reply it is","this reply is from a bot.", "i am a bot","you are talking to a bot."]
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
